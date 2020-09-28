@@ -13,26 +13,25 @@ public class Operation {
 	 */
 	public static int performOperation(char op, int left, int right) {
 		
+		int result = 0;
+		
 		if(op == '+') {
-			return left + right;
+			result = left + right;
 		} else if(op == '-') {
-			return left - right;
+			result = left - right;
 		} else if(op == '*') {
-			return left * right;
+			result = left * right;
 		} else if(op == '/') {
-			return left / right;
+			if(right == 0) {
+				throw new ArithmeticException("Error: divide by zero");
+			} else {
+				result = left / right;
+			}
 		} else {
-			throw new IllegalArgumentException("Throwing!!!");	// how to throw exception?
-																// how to handle?
+			throw new IllegalArgumentException("Error: expected number or operator");
 		}
 		
-	}
-	
-	public static void main(String[] args) {
+		return result;
 		
-		int x = performOperation('-', 4, -5);
-		
-		System.out.println(x);
-		
-	}
+		} 
 }
