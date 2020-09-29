@@ -12,21 +12,25 @@ public class Operation {
 	 * @return the result of the operation
 	 */
 	public static int performOperation(char op, int left, int right) {
-		
 		int result = 0;
 		
+		// perform correct operation
 		if(op == '+') {
-			result = left + right;
+			result = right + left;
 		} else if(op == '-') {
-			result = left - right;
+			result = right - left;
 		} else if(op == '*') {
-			result = left * right;
+			result = right * left;
 		} else if(op == '/') {
-			if(right == 0) {
+			
+			// throw exception if try to divide by 0
+			if(left == 0) {
 				throw new ArithmeticException("Error: divide by zero");
 			} else {
-				result = left / right;
+				result = right / left;
 			}
+			
+		// throw exception if 'op' is not an operator
 		} else {
 			throw new IllegalArgumentException("Error: expected number or operator");
 		}
@@ -35,3 +39,5 @@ public class Operation {
 		
 		} 
 }
+
+// goes right to left (stack order is correct); can divide 0, but not divide by 0; throws error if invalid char

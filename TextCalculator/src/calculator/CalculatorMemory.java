@@ -4,8 +4,23 @@ import java.util.LinkedList;
 
 public class CalculatorMemory {
 	
-	protected LinkedList<Integer> stack = new LinkedList<Integer>(); // memory of values
-
+	protected LinkedList<Integer> stack;// = new LinkedList<Integer>(); // memory of values
+	
+	// CalculatorMemory constructor 
+	public CalculatorMemory() {
+		stack = new LinkedList<Integer>();
+	}
+	
+	/**
+	 * Return value from stack at index
+	 * 
+	 * @param index
+	 * @return value at index
+	 */
+	public int peek(int index) {
+		return stack.get(index);
+	}
+	
 	/**
 	 * Add the number to stack
 	 * 
@@ -21,7 +36,13 @@ public class CalculatorMemory {
 	 * @return removed number
 	 */
 	public int pop() {
-		return stack.removeFirst(); // HANDLE EMPTY ERROR
+		try {
+			return stack.removeFirst();
+			
+		// throw exception if no element to pop
+		} catch(Exception e) {
+			throw new NullPointerException("Error: pop requires one argument"); // idk if this null pointer
+		}
 	}
 	
 	/**
@@ -55,7 +76,7 @@ public class CalculatorMemory {
 	 * @return a String version of the numbers stored
 	 */
 	public String toString() {
-		String s = " ";
+		String s = "";
 		
 		for(int i = 0; i < stack.size(); i++) {
 			s += Integer.toString(stack.get(i)) + "\n";
