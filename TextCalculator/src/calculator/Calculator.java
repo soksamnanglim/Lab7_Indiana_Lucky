@@ -1,5 +1,5 @@
 /**
- * @author Indiana Huey && Lucky Lim
+ * @author Indiana Huey & Lucky Lim
  * 
  * @version 0.0.1
  */
