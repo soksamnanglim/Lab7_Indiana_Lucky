@@ -1,13 +1,23 @@
+/**
+ * @author Indiana Huey && Lucky Lim
+ * 
+ * @version 0.0.1
+ */
+
 package calculator;
 
-import java.util.LinkedList;
 import java.util.Scanner;
 
+/**
+ * This class contains the main calculator program
+ */
 public class Calculator {
 	
-	CalculatorMemory stack;
+	public CalculatorMemory stack;
 	
-	// Calculator constructor
+	/**
+	 * Construct calculator
+	 */
 	public Calculator() {
 		stack = new CalculatorMemory();
 	}
@@ -27,7 +37,7 @@ public class Calculator {
 	}
 	
 	/**
-	 * 
+	 * Run the calculator
 	 */
 	public void run() {
 		
@@ -62,7 +72,10 @@ public class Calculator {
 				} else if(input.equals("/") && stack.peek(0) == 0) {
 					System.out.println("Error: divide by zero");
 				} else {
-					stack.push(Operation.performOperation(input.charAt(0), stack.pop(), stack.pop()));
+					int result = Operation.performOperation(input.charAt(0), stack.peek(1), stack.pop());
+					stack.pop();
+					stack.push(result);
+					System.out.println("Answer: " + result);
 				}
 				
 			// user input is invalid
@@ -76,9 +89,11 @@ public class Calculator {
 			System.out.print("\nEnter a number or operator: ");
 			input = sc.nextLine();
 		}
-		
 	}
 	
+	/**
+	 * Main method; create instance of calculator and run
+	 */
 	public static void main(String[] args) {
 		Calculator c = new Calculator();
 		c.run();

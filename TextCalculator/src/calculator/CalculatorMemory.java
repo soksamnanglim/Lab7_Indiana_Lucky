@@ -1,7 +1,16 @@
+/**
+ * @author Indiana Huey && Lucky Lim
+ * 
+ * @version 0.0.1
+ */
+
 package calculator;
 
 import java.util.LinkedList;
 
+/**
+ * This class contains the structure and methods for the stack data structure
+ */
 public class CalculatorMemory {
 	
 	protected LinkedList<Integer> stack;// = new LinkedList<Integer>(); // memory of values

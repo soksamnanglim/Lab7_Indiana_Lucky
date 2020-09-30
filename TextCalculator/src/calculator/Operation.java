@@ -1,5 +1,14 @@
+/**
+ * @author Indiana Huey && Lucky Lim
+ * 
+ * @version 0.0.1
+ */
+
 package calculator;
 
+/**
+ * This class does math operations
+ */
 public class Operation {
 
 	/**
@@ -16,18 +25,18 @@ public class Operation {
 		
 		// perform correct operation
 		if(op == '+') {
-			result = right + left;
+			result = left + right;
 		} else if(op == '-') {
-			result = right - left;
+			result = left - right;
 		} else if(op == '*') {
-			result = right * left;
+			result = left * right;
 		} else if(op == '/') {
 			
 			// throw exception if try to divide by 0
-			if(left == 0) {
+			if(right == 0) {
 				throw new ArithmeticException("Error: divide by zero");
 			} else {
-				result = right / left;
+				result = left / right;
 			}
 			
 		// throw exception if 'op' is not an operator
@@ -36,8 +45,5 @@ public class Operation {
 		}
 		
 		return result;
-		
 		} 
 }
-
-// goes right to left (stack order is correct); can divide 0, but not divide by 0; throws error if invalid char
